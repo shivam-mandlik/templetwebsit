@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+  <style type="text/css">
+    @media (min-width:992px) {    
+  .vertical-nav {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #f8f8f8;
+      overflow-y: auto;
+      padding-top: 30px
+    }
+}
+
+
+
+  body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  background-color:blue;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  color: black;
+
+;
+
+
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <hr>
+  <li><a class="" href="#home">Dashboard</a></li>  <hr><p>Interface</p>
+<br><br>
+  <li><a href="#news">Components</a></li><br><br>
+  <li><a href="#contact">Utilities</a></li><hr><p>Addons</p><br><br>
+  <li><a href="#about">pages</a></li><br><br>
+    <li><a href="#about">Charts</a></li><br><br>
+  <li><a href="#about">tables</a></li><hr><br><br>
+  <div class="jumbotron" style="width:300px;height:300px;margin-top: 80px;color: black;">
+  <span style="padding: 40px;"><img src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/img/undraw_rocket.svg" style="height:80px
+  ;width: 80px;"></span>
+  <p>SB Admin Pro is packed with premium features, components, and more!</p>
+<button type="button" class="btn btn-success">Upgrade To Pro!</button>
+</div>
+</ul>
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+  
+<div class="container">
+  <input type="text" name="" class="form-control"placeholder="search for" style="width: 60%;height: 50px;margin-top: 20px;margin-left: 40px;"> 
+  <h2 style="color: black;margin-top: 20px;">Dashboard</h2>
+  <div class="row">
+    <div class="col-md-3 col-12"style="margin-top: 12px;"> 
+      <div class="container border border-info" style="border-radius: 10px;box-shadow: 4px 4px 4px black;"><p style="color:blue;font-size: 15px;">Earnings (Monthly)</p>
+
+              <h2>$40,000</h2>
+
+</div>
+
+    </div> 
+    <div class="col-md-3 col-12"style="margin-top:18px;"><div class="container border border-info" style="border-radius: 10px;box-shadow: 4px 4px 4px black;"><p style="color:green;font-size: 15px;">Earnings (Monthly)</p>
+      <h2>$215,000</h2>
+
+</div>
+</div>
+    <div class="col-md-3 col-12 "style="margin-top: 18px;"><div class="container border border-info" style="height: 95px; border-radius: 10px;box-shadow: 4px 4px 4px black;"><p style="color:pink;font-size: 15px;">Earnings (Monthly)</p>
+  <h2>50%</h2> <div class="progress" style="margin-top: -30px;margin-left: 70px;">
+    <div class="progress-bar" style="width: 90px;"></div>
+  </div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-12"style="margin-top: 16px;"><div class="container border border-info" style="border-radius: 10px;box-shadow: 4px 4px 4px black;"><p style="color:orange;font-size: 20px">Earnings (Monthly)</p>
+<h2>18</h2>
+</div>
+</div>
+ <div col-md-6>
+        <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+      </div>
+
+    <div col-md-6>
+        <canvas id="myChart" style="width:100%;max-width:800px;margin-top: 40px;margin-left: 110px;"></canvas>
+
+    </div>
+     <script>
+var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+var yValues = [55, 49, 44, 24, 15];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart2", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
+<script>
+var xValues = [];
+var yValues = [];
+generateData("Math.sin(x)", -1.0, 10, 0.5);
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      pointRadius: 2,
+      borderColor: "rgba(0,0,255,3.5)",
+      data: yValues
+    }]
+  },    
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "y = sin(x)",
+      fontSize: 16
+    }
+  }
+});
+function generateData(value, i1, i2, step = 1) {
+  for (let x = i1; x <= i2; x += step) {
+    yValues.push(eval(value));
+    xValues.push(x);
+  }
+}
+
+
+</script>
+<div class="container border-info" ><br><br>
+  <div class="row">
+    <div class="col-md-5 " style="box-shadow: 2px 2px 4px 4px black;"> 
+      <h2>Projects</h2>
+   <p>Server Migration</p>
+
+<div class="progress">
+    <div class="progress-bar bg-danger" style="width: 20%;">20%</div>
+  </div><br>
+ <p> Sales Tracking</p>
+  <div class="progress">
+    <div class="progress-bar bg-warning" style="width: 40%;">40%</div>
+  </div><br>
+  <p>Customer Database</p>
+<div class="progress">
+    <div class="progress-bar bg-primary" style="width: 60%;">60%</div>
+  </div><br>
+  <p>Payout Details</p>
+   <div class="progress">
+    <div class="progress-bar bg-info" style="width: 80%;">80%</div>
+  </div><br>
+  <p>Account Setup</p>
+   <div class="progress">
+    <div class="progress-bar bg-success" style="width: 100%;">100%</div>
+  </div>
+
+
+
+    </div>
+    <div class="col-md-6 "style="box-shadow: 2px 2px 4px 4px black;height: 600px;width: 300px;margin-left: 20px;"><p style="font-size: 30px;margin-top: 14px;">Illustrations</p>
+      <img src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/img/undraw_posting_photo.svg" class="img-thumbnail">
+      <p style="font-size:20px">Add some quality, svg illustrations to your project courtesy of unDraw, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+
+<p style="color:blue;cursor: pointer;font-size: 20px;">Browse Illustrations on unDraw →</p>
+</div>
+    
+
+</div>
+</div>
+
+    <div class="container border"><br><br>
+  <div class="row">
+    <div class="col-md-3 col-6"> 
+  <div class="jumbotron bg-primary" style="width:100%;height: 110px;">
+    <p style="text-align: center;"> primary<br>#4e73df</p>
+  </div>
+  <div class="jumbotron bg-info" style="width:100%;height: 110px;">
+    <p style="text-align: center;">info<br>#36b9cc</p>
+  </div>
+  <div class="jumbotron bg-danger" style="width:100%;height: 110px;">
+    <p style="text-align: center;"> danger<br>#e74a3b</p>
+  </div>
+  <div class="jumbotron bg-light" style="width:100%;height: 110px;">
+    <p style="text-align: center;">light<br>#f8f9fc</p>
+  </div>
+
+</div>
+
+
+    <div class="col-md-3 col-6"> 
+<div class="jumbotron bg-success" style="width:100%;height: 110px;">
+    <p style="text-align: center;"> success<br>#1cc88a</p>
+  </div>
+  <div class="jumbotron bg-warning" style="width:100%;height: 110px;">
+    <p style="text-align: center;">warning<br>#f6c23e</p>
+  </div>
+  <div class="jumbotron bg-secondary" style="width:100%;height: 110px;">
+    <p style="text-align: center;">secondary<br>#858796</p>>
+  </div>
+  <div class="jumbotron bg-dark" style="width:100%;height: 110px;">
+    <p style="text-align: center;">dark<br>#5a5c69</p>>
+  </div>
+
+
+    </div>
+    <div class="col-md-6" style="box-shadow: 4px 4px 4px 4px black; height: 562px;width: 300px;margin-top: 30px;"><h3 style="color:blue;">Development Approach</h3>
+      <hr>
+      <h4 style="text-align:justify;margin-top: 20px;">SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.
+
+Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</h4>
+</div>
+</div>
+
+    
+
+  
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- </div>
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">shivam</div>
+    <div class="col-md-6"><p style="font-size: 30px;color: blue;border: 2px solid blue;">Illustrations</p>
+
+<img src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/img/undraw_posting_photo.svg" style="width:400px;height:400px;">
+
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+<div class="col-md-6 border-info" style=" box-shadow: 2px 2px 2px 2px black;height: 330px;margin-top: 10px;"><br>
+  <br><br>
+  <br><br>
+   -->
+  </body>
+</html>
